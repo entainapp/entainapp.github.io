@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { Logo } from '../ui/Logo';
+import { Header } from '../ui';
 
 interface SignUpForm {
     username: string;
@@ -25,12 +26,9 @@ export const SignUpPage = (): JSX.Element => {
 
     return (
         <main className="main relative">
-            <div className="description px-20 py-5">
-                <Logo />
-            </div>
-
+            <Header />
             <div className="center relative">
-                <div className="flex justify-center items-center h-screen">
+                <div className="flex flex-col justify-center items-center h-screen">
                     <form onSubmit={handleSubmit} className="w-1/3 rounded-lg shadow-lg p-8">
                         <h1 className="text-2xl font-medium mb-4">Sign Up</h1>
                         <div className="mb-4">
@@ -55,6 +53,12 @@ export const SignUpPage = (): JSX.Element => {
                             Sign Up
                         </button>
                     </form>
+                    <div className="w-1/3 px-8 flex flex-row gap-10">
+                        <p className="text-gray-200">
+                            Do you have an account?
+                        </p>
+                        <Link href="/signin">Sign In</Link>
+                    </div>
                 </div>
             </div>
         </main>
