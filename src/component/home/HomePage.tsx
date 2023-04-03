@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import { Logo } from '../ui/Logo'
 import Link from 'next/link'
 
@@ -16,8 +15,8 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={styles.main}>
-                <div className={styles.description}>
+            <div className="main">
+                <div className="description">
                     <Logo />
                     <div className="flex flex-row gap-10">
                         <Link href="/signin">SignIn</Link>
@@ -25,10 +24,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className={styles.center}>
+                <div className="center">
                     <h1>Here is Entain home</h1>
                 </div>
-            </main>
+            </div>
         </>
     )
 }

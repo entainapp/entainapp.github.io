@@ -1,15 +1,5 @@
+import { UserInfo, UserState } from '@/libs/interfaces';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface UserState {
-    isLoading: boolean;
-    error: string | null;
-    user: UserInfo | null;
-}
-
-interface UserInfo {
-    email: string;
-    password: string;
-}
 
 const initialState: UserState = {
     isLoading: false,

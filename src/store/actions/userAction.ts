@@ -1,11 +1,6 @@
+import { UserInfo } from '@/libs/interfaces';
 import { AppDispatch } from '../../store';
 import { signUpStart, signUpSuccess, signUpFailure, signInStart, signInSuccess, signInFailure } from '../slices/userSlice';
-
-interface UserInfo {
-    username: string;
-    email: string;
-    password: string;
-}
 
 // Sign up thunk action creator
 export const signUp = (userInfo: UserInfo) => async (dispatch: AppDispatch) => {
@@ -21,7 +16,11 @@ export const signUp = (userInfo: UserInfo) => async (dispatch: AppDispatch) => {
             const data = await response.json();
             dispatch(signUpSuccess(data));
         } else {
-            throw new Error('Sign up failed.');
+            const isJson = response.headers?.get('content-type')?.includes('application/json');
+            const data = isJson ? await response.json() : null;
+            const err = data ? data.message : response.statusText;
+
+            throw new Error(err);
         }
     } catch (error: any) {
         dispatch(signUpFailure(error.message));
