@@ -25,9 +25,9 @@ export const SignInPage = (): JSX.Element => {
 
     return (
         <>
-            <main className="main relative transition-all delay-1000">
+            <main className="main relative">
                 <Header />
-                <div className="center relative">
+                <div className="center relative ease-in duration-1000 transition-all">
                     <div className="flex flex-col justify-center items-center h-screen">
                         <form onSubmit={handleSubmit} className="w-1/3 rounded-lg shadow-lg p-8">
                             <h1 className="text-2xl font-medium mb-4">Sign In</h1>
